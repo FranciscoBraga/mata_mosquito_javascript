@@ -1,12 +1,23 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 10
 
 function ajustaTela(){
     altura = window.innerHeight
     largura = window.innerWidth
 }
 
+
+function cronometro(valor){
+
+   if(tempo < 0){
+        window.location.href='vitoria.html'
+   }else{
+     document.getElementById('cronometro').innerHTML = tempo
+     tempo = tempo - valor
+   }
+}
 
 function posicaoMosquito(){
 
@@ -71,3 +82,4 @@ ajustaTela()
 
 //criando um mosquito a cada um segundo
 setInterval(posicaoMosquito,1000)
+setInterval(cronometro,1000,1)

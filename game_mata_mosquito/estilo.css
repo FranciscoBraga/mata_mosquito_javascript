@@ -29,7 +29,7 @@ body{
 
 #painel{
   position: absolute;
-  width: 160px;
+  width: 190px;
   height: 70px;
   padding: 10px;
   left: 0px;
@@ -45,7 +45,7 @@ body{
   padding: 5px;
 }
 
-#cronometro{
+#tempo{
   float: left;
   padding: 5px;
   font-size: 20px;
