@@ -1,7 +1,27 @@
 var altura = 0
 var largura = 0
 var vidas = 1
-var tempo = 10
+var tempo =  10
+
+
+var tempoCriaMosquito = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?','')
+
+if(nivel === 'normal'){
+  tempoCriaMosquito = 1500
+   tempo =  10
+
+}else if(nivel === 'dificil'){
+  tempoCriaMosquito = 1000
+  tempo =  15
+ 
+}else{
+  tempoCriaMosquito = 750
+  tempo =  20
+  
+}
 
 function ajustaTela(){
     altura = window.innerHeight
@@ -11,12 +31,14 @@ function ajustaTela(){
 
 function cronometro(valor){
 
+
    if(tempo < 0){
         window.location.href='vitoria.html'
    }else{
      document.getElementById('cronometro').innerHTML = tempo
      tempo = tempo - valor
-   }
+     console.log(tempo)
+    }
 }
 
 function posicaoMosquito(){
@@ -69,7 +91,7 @@ function tamanhMosquito(){
 
 function ladoAleatorio(){
   var classe =  Math.floor(Math.random()*2)
-  console.log(classe)
+  //console.log(classe)
   switch(classe){
       case 0:
         return 'ladoA'
@@ -81,5 +103,5 @@ function ladoAleatorio(){
 ajustaTela()
 
 //criando um mosquito a cada um segundo
-setInterval(posicaoMosquito,1000)
+setInterval(posicaoMosquito,tempoCriaMosquito)
 setInterval(cronometro,1000,1)
